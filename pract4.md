@@ -29,7 +29,7 @@ git merge second
 git checkout 9a55e91
 ```
 
-![image](https://imgur.com/a/vesCEgC)
+![image](https://ibb.co/h99mtJY)
 
 ## Задача 2
 
