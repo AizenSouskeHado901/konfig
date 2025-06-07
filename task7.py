@@ -27,3 +27,33 @@ print(main('0x12638d7a'))  # Ожидается: '0x126387ad'
 print(main('0x3283a88c'))  # Ожидается: '0x3283a8c8'
 print(main('0x2d5c9082'))  # Ожидается: '0x2d5c9820'
 print(main('0xd43298d'))   # Ожидается: '0xd4328d9'
+
+def main(decimal_str):
+    value = int(decimal_str)  # преобразуем строку в целое число
+
+    # Маски и сдвиги:
+    T1 = value & 0xFF             # 0-7 биты
+    T2 = (value >> 8) & 0xFF      # 8-15 биты
+    T3 = (value >> 16) & 0x3F     # 16-21 биты (6 бит)
+
+    return {
+        'T1': str(T1),
+        'T2': str(T2),
+        'T3': str(T3),
+    }
+
+
+def main(value):
+    L1 = value & 0b111111            # 6 бит: 0–5
+    L2 = (value >> 6) & 0b1111111111 # 10 бит: 6–15
+    L3 = (value >> 16) & 0b1         # 1 бит: 16
+    L4 = (value >> 17) & 0b111111111 # 9 бит: 17–25
+    L5 = (value >> 26) & 0b1         # 1 бит: 26
+
+    return [
+        ('L1', L1),
+        ('L2', L2),
+        ('L3', L3),
+        ('L4', L4),
+        ('L5', L5),
+    ]
